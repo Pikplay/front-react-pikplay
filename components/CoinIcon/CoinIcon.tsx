@@ -2,15 +2,17 @@ import { gql, useLazyQuery } from '@apollo/client'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { formatNumber } from '../../lib/utils'
+import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 interface CoinsProps {
   coins?: number
   isLabel?: boolean
   hideNumber?: boolean
+  textColor?: string
 }
 
-const CoinIcon = ({ coins, isLabel, hideNumber }: CoinsProps) => {
+const CoinIcon = ({ coins, isLabel, hideNumber, textColor }: CoinsProps) => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
   const [isAnimate, setIsAnimate] = useState(false)
@@ -83,14 +85,25 @@ const CoinIcon = ({ coins, isLabel, hideNumber }: CoinsProps) => {
 
   return (
     <div
-      className={`${styles.Coins} ${isAnimate ? styles.animated : ''}`}
-      onMouseEnter={animate}>
+      className={classNames("Coins", {
+        [styles.Coins]: true,
+        [styles.animated]: isAnimate
+      }
+      )}
+      onMouseEnter={animate}
+    >
       <picture className={styles.coin} />
-      {!hideNumber && <div className={`f-s-14 ${styles.number} number-coins`}>
+      {!hideNumber && <div
+        className={`f-s-14 ${styles.number} number-coins`}
+        style={{ color: textColor ? textColor : '#e5961d' }}
+      >
         {formatNumber(coins)}
       </div>
       }
-      {isLabel && <label>Pikcoins</label>}
+
+      {isLabel && <label
+        style={{ color: textColor ? textColor : '#e5961d' }}
+      >Pikcoins</label>}
     </div>
   )
 }

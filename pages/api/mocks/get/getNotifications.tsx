@@ -3,10 +3,10 @@ const getNotifications = {
     getNotifications: [
       {
         closed: false,
-        coins: 10000,
+        coins: 5,
         created: 'Thu May 26 2022 12:35:26 GMT-0500 (Colombia Standard Time)',
         detail:
-          'Juancho Fenix y Pikplay te regalan 10.000 pikcoins para que compres Mario Paper, enjoy it!',
+          'Juancho Fenix y Pikplay te regalan 5 Pikcoins para que compres Mario Paper, enjoy it!',
         id: 168,
         link: null,
         type: 'COUPON_GIFT_AVAILABLE',

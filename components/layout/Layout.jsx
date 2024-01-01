@@ -4,7 +4,7 @@ import Head from 'next/head'
 import MenuMovil from '../menuMovil/MenuMovil'
 import MyHeader from '../myHeader/MyHeader.tsx'
 import NProgress from 'nprogress'
-import Notification from '../notification'
+import Notification from '../previewNotifications/index.jsx'
 import React from 'react'
 import Router from 'next/router'
 import Subcategories from '../subcategories/Subcategories'
@@ -36,8 +36,8 @@ const options = {
 }
 
 const events = {
-  onDragged: function (event) {},
-  onChanged: function (event) {},
+  onDragged: function (event) { },
+  onChanged: function (event) { },
 }
 
 class Layout extends React.Component {
@@ -215,6 +215,7 @@ class Layout extends React.Component {
             href='/images/logos/logo48x48.png'
           />
           <link rel='manifest' href={`/manifest.json`} />
+          <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css"></link>
           <script
             type='text/javascript'
             src='https://checkout.epayco.co/checkout.js'
@@ -256,7 +257,7 @@ class Layout extends React.Component {
               </Link>
             </div>
             {IS_MOBILE && <MenuMovil />}
-            <Notification isOpen={this.context.showNotification} />
+            {/* <Notification isOpen={this.context.showNotification} /> */}
             {this.props.children}
             <a
               target='_BLANK'

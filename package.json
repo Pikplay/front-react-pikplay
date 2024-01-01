@@ -1,7 +1,7 @@
 {
   "name": "pikajuegos",
   "engines": {
-    "node": ">=14.0.0 <15.0.0"
+    "node": ">=14.x.x <=16.x.x"
   },
   "version": "0.1.0",
   "private": true,
@@ -12,7 +12,7 @@
     "test": "jest --watch",
     "test:ci": "jest --watchAll=false",
     "debuuger-node": "npm --node-options=--inspect=localhost run dev",
-    "lint": "eslint --fix . --ext .js",
+    "eslint": "eslint --fix . --ext .js",
     "format": "prettier --write ."
   },
   "dependencies": {

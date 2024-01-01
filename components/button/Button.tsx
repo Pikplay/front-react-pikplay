@@ -20,6 +20,7 @@ interface ButtonProps {
 
 const Button = ({
   animation,
+  border,
   children,
   className,
   color,
@@ -32,14 +33,14 @@ const Button = ({
   style,
 }: ButtonProps) => {
   className = `${className} ${animation ? styles.animation : null}`
-  color = disabled ? 'disabled' : color
 
   return (
     <motion.button
       className={`
       ${styles.btn} 
-      ${styles[color]} 
-      ${className} 
+      ${border ? styles.border : null}
+      ${styles[color]}
+      ${className}
       ${outline ? styles.outline : null}
       ${isLink ? styles.link : null}
     `}

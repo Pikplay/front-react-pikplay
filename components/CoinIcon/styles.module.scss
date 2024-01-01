@@ -11,7 +11,7 @@
     }
   }
   .coin {
-    background-image: url('/images/gifs/sprite-monedas-pequenas.png');
+    background-image: url("/images/gifs/sprite-monedas-pequenas.png");
     // background-image: url("/images/gifs/monedas.png");
     background-position-x: 0px;
     background-position-y: 0px;
@@ -23,17 +23,19 @@
     transition: 0.5s linear;
     width: 31px;
   }
+  .x {
+    
+  }
   .number {
     border-radius: 5px;
-    color: #e5961d;
     display: inline-block;
     font-weight: bold;
     height: 20px;
-    margin-left: 10px;
+    margin: 0 0 0 5px;
     position: relative;
   }
+  
   label {
-    color: #e5961d;
     font-family: revert;
     font-weight: 500;
     margin-left: 5px;

@@ -19,6 +19,7 @@ import PreviewUser from '../../previewUser/PreviewUser'
 import { ResultsBox } from './ResultsBox'
 import styles from '../styles.module.scss'
 import { NewProfiles } from './NewProfiles'
+import Notification from '../../previewNotifications'
 
 const SearchBox = ({ inputText, isLoading, results, setInputText }) => {
   const { setShowSearchModal, showSearchModal } = useSearch()
@@ -99,7 +100,13 @@ const SearchBox = ({ inputText, isLoading, results, setInputText }) => {
           </motion.div>
         )
       }
-      {!IS_MOBILE && <PreviewUser />}
+      {
+        !IS_MOBILE &&
+        <>
+          <Notification />
+          <PreviewUser />
+        </>
+      }
     </div>
   )
 }

@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: ['standard', 'plugin:react/recommended', 'eslint-config-prettier'],
   overrides: [

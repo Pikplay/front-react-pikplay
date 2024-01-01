@@ -647,3 +647,22 @@ export const interestsList = [
 ]
 
 export const versions = ['1.1.1']
+
+export const animatePrince = (HTMLElement, targetNumber, fromNumber) => {
+  var target = parseFloat(fromNumber);
+  var number = targetNumber // parseFloat(HTMLElement.value);
+  console.log(number + "  " + target + " " + (number > target));
+  if (number > target) { // Aumentando
+    var interval = setInterval(function () {
+      HTMLElement.innerHTML = target
+      if (number <= target) clearInterval(interval)
+      target = Number(target + 1)
+    }, 100);
+  } else { // Disminuyendo
+    var interval = setInterval(function () {
+      HTMLElement.innerHTML = target
+      if (number >= target) clearInterval(interval)
+      target = Number(target - 1)
+    }, 80)
+  }
+}

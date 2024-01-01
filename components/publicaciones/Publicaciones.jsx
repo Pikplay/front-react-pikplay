@@ -1,9 +1,9 @@
+import React, { useEffect, useState } from 'react'
 import Button from '../../components/button/Button'
 import Card from '../card/Card'
 import ChangeSeller from './ChangeSeller'
 import Link from 'next/link'
-import Notification from '../../components/notification'
-import React from 'react'
+// import Notification from '../../components/notification'
 import Router from 'next/router'
 import moment from 'moment'
 import styles from './styles.module.scss'
@@ -26,7 +26,6 @@ import {
   GET_PUBLICATIONS,
 } from '../../lib/utils'
 import { toast } from 'react-toastify'
-import { useEffect, useState } from 'react'
 import { useQuery, gql, useMutation, useLazyQuery } from '@apollo/client'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -152,7 +151,7 @@ const Publicacion = ({ item, ind, getPublications }) => {
     }
   `
 
-  const [changeStatePublication, {}] = useMutation(UPDATE_MUTATION)
+  const [changeStatePublication, { }] = useMutation(UPDATE_MUTATION)
 
   const handleChangeState = status => {
     changeStatePublication({
@@ -223,7 +222,7 @@ const Publicacion = ({ item, ind, getPublications }) => {
             </Link>
           )}
           {!item.status && (
-            <span className={styles.verPublicacion} onClick={() => {}}>
+            <span className={styles.verPublicacion} onClick={() => { }}>
               <FontAwesomeIcon
                 style={{ position: 'relative', left: '-5px', top: '2px' }}
                 icon={faQuestionCircle}

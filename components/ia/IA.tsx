@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Button from '../button/Button'
 import ReactTyped from "react-typed"
-import styles from './styles.module.scss'
 import CoinIcon from '../CoinIcon/CoinIcon'
+import { formatNumber } from '../../lib/utils'
+import styles from './styles.module.scss'
 
 const IA = (props) => {
+    const pikcoinTRM = 1200
     const { expression } = props;
     const expressionsList = ['happy', 'sad', 'angry', 'surprised', 'confused', 'disgusted', 'fearful', 'neutral'];
-    const defaultInitialMessage = "Hola! en que te puedo ayudar?"
+    const defaultInitialMessage = `Hola! en que te puedo ayudar? <br/> El precio de la <b>Pikcoin</b> de hoy es $${formatNumber(pikcoinTRM)}`
     const [isVisible, setIsvisible] = useState(false)
     const [IAMessage, setIAMessage] = useState(<></>)
     const [IAOptions, setIAOptions] = useState(<></>)

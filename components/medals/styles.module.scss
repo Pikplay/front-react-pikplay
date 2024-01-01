@@ -1,0 +1,13 @@
+.Medals {
+    picture {
+        background: url("/images/others/medals-2.png");
+        display: block;
+        margin: 0 auto;
+        transform: scale(0.7);
+        width: 126px;
+        height: 300px;
+        &.bronze {
+            background-position: -84px;
+        }
+    }
+}

@@ -1,8 +1,8 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .PreviewUser {
   position: relative;
-  margin-left: 100px;
+  margin-left: 20px;
   width: 70px;
   z-index: 4;
   @media screen and (max-width: $tablet) {
@@ -15,6 +15,7 @@
       }
     }
   }
+
   @media screen and (min-width: 1024px) {
     &:hover,
     &.actived {
@@ -23,24 +24,29 @@
       }
     }
   }
+
+  .coins{
+    position: absolute;
+    right: -60px;
+    top: 8px;
+  }
+
   .bg_black {
-    background: radial-gradient(
-      circle,
-      rgb(82 89 95) 0%,
-      rgba(36, 41, 46, 1) 100%
-    );
+    background: radial-gradient(circle, rgb(82 89 95) 0%, rgba(36, 41, 46, 1) 100%);
     border-radius: 10px;
     box-shadow: 0px 2px 2px #5252522e;
     color: white;
     display: none;
     font-size: 14px;
-    height: 306px;
+    // height: 306px;
     position: absolute;
     padding-top: 10px;
-    right: 10px;
-    top: 40px;
+    right: 20px;
+    top: 30px;
     transition: 0.8s ease;
+    width: 240px;
     z-index: 3;
+
     @media screen and (max-width: $tablet) {
       border-radius: 10px 10px 0 0;
       bottom: 70px;
@@ -52,26 +58,32 @@
       top: initial;
       width: 180px;
     }
+
     &.activated {
       display: block;
     }
+
     :global(.UserNotifications) {
-      right: 164px;
+      right: 0px;
       position: absolute;
     }
+
     > ol {
       border-bottom: 1px solid #424950;
       font-weight: bold;
       margin: 10px 0;
       padding: 0 20px 10px;
-      text-align: center;
+      text-align: left;
+
       &:nth-of-type(1) {
         // margin-top: 20px;
       }
+
       a {
         color: white !important;
         justify-content: center;
       }
+
       .flex {
         align-items: center;
         display: flex;
@@ -80,6 +92,7 @@
         margin: 0 auto;
         width: 80px;
       }
+
       .text {
         font-size: 12px;
         margin-top: 10px;
@@ -89,26 +102,6 @@
       }
     }
   }
-}
-
-.notyQuantity {
-  background: #ea4d42;
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: bold;
-  height: 20px;
-  left: 36px;
-  line-height: 20px;
-  margin: 0 auto;
-  padding: 0;
-  position: absolute;
-  right: 0px;
-  text-align: center;
-  top: 0;
-  width: 20px;
-  z-index: 5;
 }
 
 @keyframes like {

@@ -1,3 +1,79 @@
+.PreviewNotifications {
+  margin-left: 50px;
+  position: relative;
+  width: 20px;
+  &:hover {
+    .bg_black {
+      display: block;
+    }
+  }
+
+  .bg_black {
+    // border: 1px solid red;
+    display: none;
+    // height: 306px;
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    transition: 0.8s ease;
+    width: 370px;
+    z-index: 3;
+
+    &.activated {
+      display: block;
+    }
+
+    > ol {
+      border-bottom: 1px solid #424950;
+      font-weight: bold;
+      margin: 10px 0;
+      padding: 0 20px 10px;
+      text-align: center;
+      &:nth-of-type(1) {
+        // margin-top: 20px;
+      }
+      a {
+        color: white !important;
+        justify-content: center;
+      }
+      .flex {
+        align-items: center;
+        display: flex;
+        height: 20px;
+        justify-content: space-around;
+        margin: 0 auto;
+        width: 80px;
+      }
+      .text {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      :global(.number-coins) span {
+        display: none;
+      }
+    }
+  }
+}
+
+.notyQuantity {
+  background: #ea4d42;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  height: 20px;
+  left: 8px;
+  line-height: 20px;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: -8px;
+  width: 20px;
+  z-index: 5;
+}
+
 .Notificacion {
   border-radius: 5px;
   box-shadow: 0 0 0px 50vw #08080826;
