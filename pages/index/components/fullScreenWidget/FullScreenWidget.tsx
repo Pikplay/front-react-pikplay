@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import Card from '../../../../components/card/Card'
+import Card from '../../../../src/components/card/Card'
 
 const FullScreenWidget = () => {
   return (

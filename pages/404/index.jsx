@@ -1,5 +1,5 @@
-import Button from '../../components/button/Button'
-import Layout from '../../components/layout/Layout'
+import Button from '../../src/components/button/Button'
+import Layout from '../../src/components/layout/Layout'
 import Link from 'next/link'
 import { Alert } from '@material-ui/lab'
 

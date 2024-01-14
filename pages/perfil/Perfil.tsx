@@ -1,11 +1,11 @@
 import React from 'react'
 const { motion } = require('framer-motion')
-import Button from '../../components/button/Button'
-import CiudadControl from '../../components/ciudadControl/CiudadControl'
-import CouponBox from '../../components/couponBox/CouponBox'
-import ImageProfile from '../../components/imageProfile/ImageProfile'
-import UserNotifications from '../../components/userNotifications/UserNotifications'
-import VARS from '../../lib/variables'
+import Button from '../../src/components/button/Button'
+import CiudadControl from '../../src/components/ciudadControl/CiudadControl'
+import CouponBox from '../../src/components/couponBox/CouponBox'
+import ImageProfile from '../../src/components/imageProfile/ImageProfile'
+import UserNotifications from '../../src/components/userNotifications/UserNotifications'
+import VARS from '../../src/lib/variables'
 import styles from './perfil.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -24,13 +24,13 @@ import {
 } from '@fortawesome/free-regular-svg-icons'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
-import { interestsList } from '../../lib/utils'
+import { interestsList } from '../../src/lib/utils'
 import { Alert } from '@material-ui/lab'
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
-import Challenges from '../../components/challenges/Challenges'
-import CoinIcon from '../../components/CoinIcon/CoinIcon'
-import ProfileSummaryExperience from '../../components/profileSummaryExperience/ProfileSummaryExperience'
+import Challenges from '../../src/components/challenges/Challenges'
+import CoinIcon from '../../src/components/CoinIcon/CoinIcon'
+import ProfileSummaryExperience from '../../src/components/profileSummaryExperience/ProfileSummaryExperience'
 
 const { IS_MOBILE } = VARS
 

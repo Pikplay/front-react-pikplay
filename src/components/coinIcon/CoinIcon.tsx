@@ -1,7 +1,7 @@
 import { gql, useLazyQuery } from '@apollo/client'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { formatNumber } from '../../lib/utils'
+import { formatNumber } from '../../../src/lib/utils'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 

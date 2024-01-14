@@ -1,5 +1,5 @@
-import Layout from '../components/layout/Layout'
-import { getHome } from '../lib/utils'
+import Layout from '../src/components/layout/Layout'
+import { getHome } from '../src/lib/utils'
 import Portada from './index/components/portada/Portada'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'

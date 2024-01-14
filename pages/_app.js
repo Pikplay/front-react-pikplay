@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
-import graphqlClient from '../lib/graphqlClient'
+import graphqlClient from '../src/lib/graphqlClient'
 import { ApolloProvider } from '@apollo/client'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 import { persistStore } from 'redux-persist'
-import { useStore } from '../lib/store'
-import { versions } from '../lib/utils'
-import Loading from '../components/loading/Loading'
-import '../styles/globalStyles.scss'
+import { useStore } from '../src/lib/store'
+import { versions } from '../src/lib/utils'
+import Loading from '../src/components/loading/Loading'
+import '../src/styles/globalStyles.scss'
 
 const MyApp = props => {
   const { Component, pageProps, router } = props

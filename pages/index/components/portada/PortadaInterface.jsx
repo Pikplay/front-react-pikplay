@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
 const { IS_MOBILE } = '../../lib/variables'
-import Card from '../../../../components/card/Card'
-import Footer from '../../../../components/footer/Footer'
-import HolaJuanito from '../../../../components/holaJuanito/HolaJuanito'
+import Card from '../../../../src/components/card/Card'
+import Footer from '../../../../src/components/footer/Footer'
+import HolaJuanito from '../../../../src/components/holaJuanito/HolaJuanito'
 import React from 'react'
 import styles from './portada.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,11 +10,11 @@ import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { gql } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import { GET_FOLLOWED_PUBLICATIONS } from '../../../../lib/utils'
+import { GET_FOLLOWED_PUBLICATIONS } from '../../../../src/lib/utils'
 import FullScreenWidget from '../fullScreenWidget/FullScreenWidget'
 
 const CategoryBanner = dynamic(
-  () => import('../../../../components/categoryBanner/CategoryBanner.jsx'),
+  () => import('../../../../src/components/categoryBanner/CategoryBanner.jsx'),
   { ssr: false },
 )
 
@@ -66,7 +66,7 @@ const PortadaInterface = ({
     }
 
     ModalLead = dynamic(
-      () => import('../../../../components/modalLoead/ModalLead'),
+      () => import('../../../../src/components/modalLoead/ModalLead'),
       { ssr: false },
     )
   }, [])

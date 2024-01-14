@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import Layout from '../../components/layout/Layout'
 import { Box, Card, Tab, Tabs, Typography } from '@material-ui/core'
+import Layout from '../../src/components/layout/Layout'
 import CompetitionsList from './components/Competitions'
+import styles from './styles.module.scss'
 
 const ConcursosPage = () => {
     const [value, setValue] = useState(0)
@@ -30,25 +31,28 @@ const ConcursosPage = () => {
     }
 
     return (
-        <Layout title="Concursos">
-            <section className={`page`}>
-                <Card>
-                    <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        aria-label='basic tabs example'
-                        indicatorColor='primary'
-                    >
-                        <Tab label='Mis Concursos' />
-                        <Tab label='Crear Concurso' />
-                    </Tabs>
+        <section className={styles.CompetitionsComponent}>
+            <Layout title="Concursos">
+                <div className={`page`}>
+                    <Card>
+                        <Tabs
+                            value={value}
+                            onChange={handleChange}
+                            aria-label='basic tabs example'
+                            indicatorColor='primary'
+                        >
+                            <Tab label='Listado de Concursos' />
+                            <Tab label='Mis Concursos' />
+                            <Tab label='Crear Concurso' />
+                        </Tabs>
 
-                    <TabPanel value={value} index={0}>
-                        <CompetitionsList />
-                    </TabPanel>
-                </Card>
-            </section>
-        </Layout>
+                        <TabPanel value={value} index={0}>
+                            <CompetitionsList />
+                        </TabPanel>
+                    </Card>
+                </div>
+            </Layout>
+        </section>
     )
 }
 
