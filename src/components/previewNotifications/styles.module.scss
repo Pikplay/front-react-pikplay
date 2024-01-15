@@ -1,0 +1,156 @@
+.PreviewNotifications {
+  margin-left: 50px;
+  position: relative;
+  width: 20px;
+  &:hover {
+    .bg_black {
+      display: block;
+    }
+  }
+
+  .bg_black {
+    // border: 1px solid red;
+    display: none;
+    // height: 306px;
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    transition: 0.8s ease;
+    width: 370px;
+    z-index: 3;
+
+    &.activated {
+      display: block;
+    }
+
+    > ol {
+      border-bottom: 1px solid #424950;
+      font-weight: bold;
+      margin: 10px 0;
+      padding: 0 20px 10px;
+      text-align: center;
+      &:nth-of-type(1) {
+        // margin-top: 20px;
+      }
+      a {
+        color: white !important;
+        justify-content: center;
+      }
+      .flex {
+        align-items: center;
+        display: flex;
+        height: 20px;
+        justify-content: space-around;
+        margin: 0 auto;
+        width: 80px;
+      }
+      .text {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      :global(.number-coins) span {
+        display: none;
+      }
+    }
+  }
+}
+
+.notyQuantity {
+  background: #ea4d42;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  height: 20px;
+  left: 8px;
+  line-height: 20px;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: -8px;
+  width: 20px;
+  z-index: 5;
+}
+
+.Notificacion {
+  border-radius: 5px;
+  box-shadow: 0 0 0px 50vw #08080826;
+  font-size: 14px;
+  left: 50%;
+  opacity: 0;
+  overflow: hidden;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+  width: 0px;
+  z-index: 10;
+  @media screen and (max-width: 420px) {
+    box-shadow: 0 0 0px 50vh #08080826;
+  }
+  &.active {
+    opacity: 1;
+    width: 800px;
+    @media screen and (max-width: 420px) {
+      width: 80%;
+    }
+  }
+  &:hover {
+    // transform: scale(1.1);
+  }
+  .bg {
+    animation: rotate 2s infinite alternate;
+    background: linear-gradient(45deg, #426d98 0%, #1e4368 100%);
+    background-size: 300%;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+  .content {
+    background-color: white;
+    border-radius: 20px 80px 20px 50px;
+    margin: 5px;
+    padding: 20px 20px;
+    position: relative;
+    > div {
+      p:first-child {
+        margin: 0;
+      }
+    }
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  .close {
+    animation: 0.5s ease;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    right: 2px;
+    top: 0px;
+    width: 20px;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}

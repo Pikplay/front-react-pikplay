@@ -1,20 +1,19 @@
+import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-const { IS_MOBILE } = '../../lib/variables'
-import Card from '../../../../components/card/Card'
-import Footer from '../../../../components/footer/Footer'
-import HolaJuanito from '../../../../components/holaJuanito/HolaJuanito'
-import React from 'react'
-import styles from './portada.module.scss'
+import Footer from '../../../../src/components/footer/Footer'
+import Card from '../../../../src/components/card/Card'
+import Advertisements from '../../../../src/components/advertisements/Advertisements.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
-import { gql } from '@apollo/client'
-import { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
-import { GET_FOLLOWED_PUBLICATIONS } from '../../../../lib/utils'
+import { GET_FOLLOWED_PUBLICATIONS } from '../../../../src/lib/utils'
 import FullScreenWidget from '../fullScreenWidget/FullScreenWidget'
+import styles from './portada.module.scss'
+
+const { IS_MOBILE } = '../../lib/variables'
 
 const CategoryBanner = dynamic(
-  () => import('../../../../components/categoryBanner/CategoryBanner.jsx'),
+  () => import('../../../../src/components/categoryBanner/CategoryBanner.jsx'),
   { ssr: false },
 )
 
@@ -31,7 +30,7 @@ const SpecialBanner = ({ category, popularyItem, starItem }) => {
       />
       <div className={styles.box}>
         <div className={styles.title}>Anuncio</div>
-        <Card key={starItem.id} permitirLink={true} {...starItem} />
+        <Card permitirLink={true} {...starItem} />
       </div>
     </div>
   )
@@ -66,7 +65,7 @@ const PortadaInterface = ({
     }
 
     ModalLead = dynamic(
-      () => import('../../../../components/modalLoead/ModalLead'),
+      () => import('../../../../src/components/modalLoead/ModalLead'),
       { ssr: false },
     )
   }, [])
@@ -92,64 +91,73 @@ const PortadaInterface = ({
     },
   )
 
-  return (
-    <React.Fragment>
-      {feed && feed.length < 1 && (
-        <h3 style={{ textAlign: 'center' }}>
-          <FontAwesomeIcon icon={faClock} style={{ marginRight: '10px' }} />
-          Mantenimiento programado en progreso
-        </h3>
-      )}
-      {!category && <HolaJuanito />}
+  const Products = () => {
+    return <div className={styles.PortadaInterfaceComponent}>
+      <div className={styles.main}>
+        <div className='listadoRodadas'>
+          {feed &&
+            feed.map((item, ind) => {
+              let categoryId = 0
+              switch (ind) {
+                case 0:
+                  categoryId = 2
+                  break
+                case 6:
+                  categoryId = 3
+                  break
+                case 12:
+                  categoryId = 4
+                  break
+                case 18:
+                  categoryId = 5
+                  break
+                case 24:
+                  categoryId = 1
+                  break
+                case 30:
+                  categoryId = 6
+                  break
+                default:
+                  categoryId = null
+                  break
+              }
+
+              const showCategoryBanner = !IS_MOBILE && categoryId && !category
+
+              return (
+                <>
+                  {showCategoryBanner && (
+                    <CategoryBanner categoryId={categoryId} />
+                  )}
+                  <Card {...{ handleFavorite, ...item }} />
+                </>
+              )
+            })}
+        </div>
+      </div>
+    </div>
+  }
+
+  const Maintenance = () => {
+    return (
+      <h3 style={{ textAlign: 'center' }}>
+        <FontAwesomeIcon icon={faClock} style={{ marginRight: '10px' }} />
+        Mantenimiento programado en progreso
+      </h3>
+    )
+  }
+
+  return (<>
+    <section>
+      {feed && feed.length < 1 && <Maintenance />}
+      {!category && <Advertisements />}
       {/* <SpecialBanner {...{ category, popularyItem, starItem }} /> */}
       {/* <FullScreenWidget /> */}
       {showModalLead && <ModalLead />}
-      <div className={styles.PortadaInterfaceComponent}>
-        <div className={styles.main}>
-          <div className='listadoRodadas'>
-            {feed &&
-              feed.map((item, ind) => {
-                let categoryId = 0
-                switch (ind) {
-                  case 0:
-                    categoryId = 2
-                    break
-                  case 6:
-                    categoryId = 3
-                    break
-                  case 12:
-                    categoryId = 4
-                    break
-                  case 18:
-                    categoryId = 5
-                    break
-                  case 24:
-                    categoryId = 1
-                    break
-                  case 30:
-                    categoryId = 6
-                    break
-                  default:
-                    categoryId = null
-                    break
-                }
-
-                const showCategoryBanner = !IS_MOBILE && categoryId && !category
-
-                return (
-                  <>
-                    {showCategoryBanner && (
-                      <CategoryBanner categoryId={categoryId} />
-                    )}
-                    <Card {...{ handleFavorite, ...item }} />
-                  </>
-                )
-              })}
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </React.Fragment>
+      {/* <Products /> */}
+    </section>
+    <Footer />
+  </>
   )
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 const { motion } = require('framer-motion')
-import Button from '../../components/button/Button'
-import CiudadControl from '../../components/ciudadControl/CiudadControl'
-import CouponBox from '../../components/couponBox/CouponBox'
-import ImageProfile from '../../components/imageProfile/ImageProfile'
-import UserNotifications from '../../components/userNotifications/UserNotifications'
-import VARS from '../../lib/variables'
+import Button from '../../src/components/button/Button'
+import CiudadControl from '../../src/components/ciudadControl/CiudadControl'
+import CouponBox from '../../src/components/couponBox/CouponBox'
+import ImageProfile from '../../src/components/imageProfile/ImageProfile'
+import UserNotifications from '../../src/components/userNotifications/UserNotifications'
+import VARS from '../../src/lib/variables'
 import styles from './perfil.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -24,12 +24,13 @@ import {
 } from '@fortawesome/free-regular-svg-icons'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
-import { interestsList } from '../../lib/utils'
+import { interestsList } from '../../src/lib/utils'
 import { Alert } from '@material-ui/lab'
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
-import Challenges from '../../components/challenges/Challenges'
-import CoinIcon from '../../components/CoinIcon/CoinIcon'
+import Challenges from '../../src/components/challenges/Challenges'
+import CoinIcon from '../../src/components/CoinIcon/CoinIcon'
+import ProfileSummaryExperience from '../../src/components/profileSummaryExperience/ProfileSummaryExperience'
 
 const { IS_MOBILE } = VARS
 
@@ -124,27 +125,14 @@ const Interface = ({
           toast(message)
         }}
         className='Card main'
-        // whileHover={{ scale: 1.1 }}
-        // whileTap={{ scale: 0.8 }}
+      // whileHover={{ scale: 1.1 }}
+      // whileTap={{ scale: 0.8 }}
       >
         Perfil
         <FontAwesomeIcon className='svg-question' icon={faQuestionCircle} />
       </motion.h2>
 
       <div className={styles.content}>
-        <div className={`Card ${styles.imageAndLevel}`}>
-          <label id={styles.category}>{userData?.category}</label>
-          <ImageProfile {...{ userData }} />
-          <div className={styles.coins}>
-            <CoinIcon coins={0} />
-          </div>
-          <div className='m-t-20'>
-            <Button color='link' onClick={() => toast(msgSubirCategoria)}>
-              ¿Como puedo subir de categoria y obtener más privilegios?
-            </Button>
-          </div>
-        </div>
-
         <div className={classNames('Card', styles['profile-content'])}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs
@@ -153,12 +141,15 @@ const Interface = ({
               aria-label='basic tabs example'
               indicatorColor='primary'
             >
+              <Tab label='Resumen' {...a11yProps(0)} />
               <Tab label='Información del perfil' {...a11yProps(0)} />
+              <Tab label='Notificaciones' {...a11yProps(1)} />
               <Tab label='Intereses' {...a11yProps(1)} />
               <Tab label='Desafios' {...a11yProps(1)} />
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0}>
+
+          <TabPanel value={value} index={1}>
             <TextField
               fullWidth={true}
               label='Tú nombre o el nombre de tu tienda'
@@ -202,9 +193,15 @@ const Interface = ({
                 />
               </div>
             </p>
+            <Button
+              color={!isSaving ? 'blue' : 'disabled'}
+              onClick={handleSave}
+            >
+              {isSaving ? 'Gaurdando...' : 'Guardar'}
+            </Button>
           </TabPanel>
 
-          <TabPanel value={value} index={1}>
+          <TabPanel value={value} index={4}>
             {/* Intereses */}
             <Alert className='m-t-20' severity='info'>
               En Pikplay utilizamos los intereses para conocer a los usuarios y
@@ -222,31 +219,31 @@ const Interface = ({
                 )
               })}
             </p>
-          </TabPanel>
-
-          <TabPanel value={value} index={2}>
-            <Challenges />
-          </TabPanel>
-
-          <div className='f-r'>
-            <CouponBox user={userData} />
             <Button
               color={!isSaving ? 'blue' : 'disabled'}
               onClick={handleSave}
             >
               {isSaving ? 'Gaurdando...' : 'Guardar'}
             </Button>
+          </TabPanel>
+
+          <TabPanel value={value} index={3}>
+            <Challenges />
+          </TabPanel>
+
+          <TabPanel value={value} index={2}>
+            <UserNotifications />
+          </TabPanel>
+
+          <TabPanel value={value} index={0}>
+            <ProfileSummaryExperience />
+          </TabPanel>
+
+          <div className='f-r'>
+            <CouponBox user={userData} />
           </div>
         </div>
 
-        {!IS_MOBILE && (
-          <div
-            className='Card notifications-content'
-            id={styles.notificaciones}
-          >
-            <UserNotifications />
-          </div>
-        )}
       </div>
     </section>
   )

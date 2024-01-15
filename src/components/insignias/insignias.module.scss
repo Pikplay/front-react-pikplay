@@ -1,0 +1,41 @@
+.Insignias {
+  background: #11495d;
+  border-radius: 4px;
+  margin: 20px;
+  padding: 10px 0 0 0;
+  width: 120px;
+  h4 {
+    margin: 0;
+    text-align: center;
+  }
+  .list {
+    display: flex;
+    // flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.Insignia {
+  background-image: url("/images/icons/insignias-sprite.png");
+  background-size: auto;
+  border-radius: 50%;
+  // box-shadow: 3px 3px 0px #222222;
+  cursor: pointer;
+  height: 60px;
+  list-style: none;
+  padding: 4px;
+  transform: scale(0.5);
+  width: 60px;
+  &.first {
+    background-position: 550px 2px;
+    // background-color: #818181;
+  }
+  &.second {
+    background-position: 484px 0;
+    // background-color: #96e7fe;
+  }
+  &.third {
+    background-position: 410px 0;
+  }
+}

@@ -1,0 +1,112 @@
+button.btn {
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 12px;
+  height: 34px;
+  margin: 5px;
+  padding: 0;
+  text-shadow: 1px 1px #5a5a5a;
+  text-transform: initial;
+  &:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  &.border {
+    border: 1px solid;
+  }
+  &.transparent {
+    background-color: transparent;
+    border-color: white;
+  }
+  &.normal {
+    background: #a9a9a9;
+    &.outline {
+      background: transparent;
+      border: 1px solid #0095b3;
+      color: #0095b3;
+      &:hover {
+        background: #0095b3;
+        color: white;
+      }
+    }
+  }
+  &.yellow {
+    background: #ff9b51;
+  }
+  &.blue {
+    background: #0095b3;
+    &.outline {
+      background: transparent;
+      border: 1px solid #0095b3;
+      color: #0095b3;
+      &:hover {
+        background: #0095b3;
+        color: white;
+      }
+    }
+  }
+  &.modal span {
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  &.red {
+    background: #f05f70;
+    &.outline {
+      background: transparent;
+      border: 1px solid #f05f70;
+      color: #f05f70;
+      &:hover {
+        background: #f05f70;
+        color: white;
+      }
+    }
+  }
+  &.link {
+    background: transparent;
+    color: #476e96;
+    font-weight: normal;
+    text-decoration: underline;
+    text-shadow: initial;
+    &:hover {
+      box-shadow: initial;
+      :global(button) {
+        background: transparent;
+      }
+    }
+  }
+  &.green {
+    background: #53c060;
+  }
+  &.disabled {
+    background: #8a8a8a;
+  }
+  &.remove {
+    display: none;
+  }
+  :global(.MuiButtonBase-root) {
+    // Boton de material UI
+    color: inherit;
+    font-size: inherit;
+    height: 100%;
+    line-height: 14px;
+    margin: initial;
+    padding: 5px 20px;
+  }
+  .text {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    svg {
+      margin-left: 5px;
+      transition: 0.2s ease-in;
+    }
+  }
+  &.animation:hover {
+    .text svg {
+      transform: translateX(5px);
+    }
+  }
+}

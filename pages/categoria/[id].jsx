@@ -1,8 +1,8 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout'
-import { getCategories, getFeed, capitalize, slugify } from '../../lib/utils'
+import Layout from '../../src/components/layout/Layout'
+import { getCategories, getFeed, capitalize, slugify } from '../../src/lib/utils'
 import Portada from '../index/components/portada/Portada'
-import CategoryBanner from '../../components/categoryBanner/CategoryBanner'
+import CategoryBanner from '../../src/components/categoryBanner/CategoryBanner'
 
 const CategoryPage = props => {
   const { category, categoryId, feed } = props

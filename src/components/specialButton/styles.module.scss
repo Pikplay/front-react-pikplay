@@ -1,0 +1,47 @@
+.SpecialButton {
+    text-align: center;
+
+    .wrapper {
+        position: relative;
+        // top: 50%;
+        // transform: translateY(-50%);
+        margin: 0 auto;
+        width: 320px;
+    }
+
+    svg {
+        height: max-content;
+        width: max-content;
+        max-width: initial;
+        max-height: initial;
+    }
+
+    :global(.shape) {
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: 8px;
+        fill: transparent;
+        stroke: #3095b3;
+        border-bottom: 5px solid black;
+        transition:
+            stroke-width 1s,
+            stroke-dashoffset 1s,
+            stroke-dasharray 1s;
+        &:hover {
+            stroke-width: 2px;
+            stroke-dashoffset: 0;
+            stroke-dasharray: 760;
+        }
+    }
+
+    :global(.text) {
+        font-family: "Roboto Condensed";
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 2px;
+        color: #fff;
+        top: -54px;
+        position: relative;
+        pointer-events: none;
+    }
+}

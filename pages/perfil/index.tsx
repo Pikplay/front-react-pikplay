@@ -1,7 +1,7 @@
 import Perfil from './Perfil'
-import Layout from '../../components/layout/Layout'
+import Layout from '../../src/components/layout/Layout'
 import { gql, useMutation } from '@apollo/client'
-import { subirImagen, validateLoginToken } from '../../lib/utils'
+import { subirImagen, validateLoginToken } from '../../src/lib/utils'
 import { toast } from 'react-toastify'
 import { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,8 +10,7 @@ import { useRouter } from 'next/router'
 const CHANGE_PROFILE = gql`
   mutation ChangeProfileData($input: UserInput) {
     changeProfileData(input: $input)
-  }
-`
+  }`
 
 const Index = props => {
   const descripcion =
